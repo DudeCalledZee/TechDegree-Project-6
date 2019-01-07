@@ -10,7 +10,7 @@ const phrases = [
   'cranny axe',
   'gut locker',
 ];
-const PhraseArray = getRandomPhraseAsArray(phrases);
+const phraseArray = getRandomPhraseAsArray(phrases);
 
 overlay.addEventListener('click', () => {
   overlay.style.display = 'none';
@@ -28,7 +28,7 @@ function addPhraseToDisplay(arr) {
     const item = document.createElement("li");
     const phraseUL = document.querySelector('#phrase ul');
     item.textContent = arr[i];
-    phraseUl.appendChild(item);
+    phraseUL.appendChild(item);
     if (phraseArray === ' ') {
       item.className = "space";
     } else {
@@ -37,4 +37,4 @@ function addPhraseToDisplay(arr) {
   }
 }
 
-addPhrasetoDisplay(phraseArray);
+addPhraseToDisplay(phraseArray);

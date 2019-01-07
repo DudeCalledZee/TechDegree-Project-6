@@ -1,6 +1,6 @@
 const qwerty = document.querySelector('#qwerty');
 const score = document.querySelectorAll('.tries');
-const overLay = document.getElementById('overlay');
+const overlay = document.getElementById('overlay');
 
 let missed = 0;
 
@@ -13,3 +13,7 @@ const phrases = [
   'cranny axe',
   'gut locker',
 ];
+
+overlay.addEventListener('click',() => {
+  overlay.style.display = 'none';
+});

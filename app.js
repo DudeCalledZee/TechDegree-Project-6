@@ -29,7 +29,7 @@ function addPhraseToDisplay(arr) {
     const phraseUL = document.querySelector('#phrase ul');
     item.textContent = arr[i];
     phraseUL.appendChild(item);
-    if (phraseArray === ' ') {
+    if (phraseArray[i] === ' ') {
       item.className = "space";
     } else {
       item.className = "letter";

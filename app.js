@@ -12,20 +12,29 @@ const phrases = [
 ];
 const PhraseArray = getRandomPhraseAsArray(phrases);
 
-overlay.addEventListener('click',() => {
+overlay.addEventListener('click', () => {
   overlay.style.display = 'none';
 });
 
 
 function getRandomPhraseAsArray(arr) {
   let randomPhrase = Math.floor(Math.random() * phrases.length);
-  let word = arr[randomPhrase].toLowerCase();
-  return word.split('');
+  let words = arr[randomPhrase].toLowerCase();
+  return words.split('');
 }
 
-function addPhraseToDisplay(arr){
-    // do stuff any arr that is passed in, and add to `#phrase ul`
+function addPhraseToDisplay(arr) {
+  for (i = 0; i < arr.length; i += 1) {
+    const item = document.createElement("li");
+    const phraseUL = document.querySelector('#phrase ul');
+    item.textContent = arr[i];
+    phraseUl.appendChild(item);
+    if (phraseArray === ' ') {
+      item.className = "space";
+    } else {
+      item.className = "letter";
+    }
+  }
 }
-
 
 addPhrasetoDisplay(phraseArray);

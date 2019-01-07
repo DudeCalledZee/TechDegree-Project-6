@@ -38,3 +38,7 @@ function addPhraseToDisplay(arr) {
 }
 
 addPhraseToDisplay(phraseArray);
+
+function checkLetter('click') {
+
+}

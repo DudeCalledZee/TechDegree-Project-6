@@ -4,6 +4,7 @@ const overlay = document.getElementById('overlay');
 const lives = document.querySelector('img');
 let letter;
 let missed = 0;
+let firstGame = true;
 const phrases = [
   'Cattle prod',
   'Oyster ditch',
@@ -48,8 +49,6 @@ let keypress = qwerty.addEventListener('click', (e) => {
 });
 
 
-
-
 function checkLetter(selectLetter) {
   const hiddenLetter = document.querySelectorAll('.letter');
   let letterFound = false;
@@ -68,8 +67,26 @@ qwerty.addEventListener('click', (e) => {
     chosenLetter.classList.add('chosen');
     chosenLetter.setAttribute('disabled', '');
     let letterFound = checkLetter(chosenLetter.textContent);
-    if (letterFound === false && missed < 5) {
+    if (letterFound === false) {
       missed++;
     }
   }
 });
+
+function checkWin() {
+  const letters = document.querySelectorAll('.letter');
+  const show = document.querySelectorAll('.show');
+  if (missed === 5) {
+    overlay.style.display = '';
+    overlay.className = '';
+    overlay.classList.add('lose');
+    title.innerHTML = 'Sorry You Lost';
+    startGame.textContent = 'Play Again?';
+  } else if (show.length === letters.length) {
+    overlay.style.display = '';
+    overlay.className = '';
+    overlay.classList.add('win');
+    title.innerHTML = 'You Win!';
+    startGame.textContent = 'Play Again?';
+  }
+}

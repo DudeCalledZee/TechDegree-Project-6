@@ -50,11 +50,11 @@ let keypress = qwerty.addEventListener('click', (e) => {
 
 
 function checkLetter(selectLetter) {
-  const hidenLetter = document.querySelectorAll('.letter');
+  const hiddenLetter = document.querySelectorAll('.letter');
   let letterFound = false;
-  for (let i = 0; i < hidenLetter.length; i++) {
-    if (selectLetter === hidenLetter[i].textContent) {
-      hidenLetter[i].classList.add('show');
+  for (let i = 0; i < hiddenLetter.length; i++) {
+    if (selectLetter === hiddenLetter[i].textContent) {
+      hiddenLetter[i].classList.add('show');
       letterFound = true;
     }
   }
@@ -67,5 +67,8 @@ qwerty.addEventListener('click', (e) => {
     chosenLetter.classList.add('chosen');
     chosenLetter.setAttribute('disabled', '');
     let letterFound = checkLetter(chosenLetter.textContent);
+    if (letterFound === false && missed < 5) {
+      missed++;
+    }
   }
 });

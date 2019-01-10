@@ -78,13 +78,16 @@ qwerty.addEventListener('click', (e) => {
 function checkWin() {
   const letters = document.querySelectorAll('.letter');
   const show = document.querySelectorAll('.show');
+  const title = document.querySelector('.title');
   if (missed === 5) {
     overlay.style.display = '';
     overlay.className = '';
     overlay.classList.add('lose');
+    title.innerHTML = 'Sorry You Lost';
   } else if (show.length === letters.length) {
     overlay.style.display = '';
     overlay.className = '';
     overlay.classList.add('win');
+    title.innerHTML = 'You Win!';
   }
 }

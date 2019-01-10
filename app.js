@@ -5,7 +5,6 @@ const reset = document.querySelector('.btn__reset');
 const lives = document.querySelector('img');
 let letter;
 let missed = 0;
-let firstGame = true;
 const phrases = [
   'Cattle prod',
   'Oyster ditch',
@@ -80,15 +79,25 @@ function checkWin() {
   const letters = document.querySelectorAll('.letter');
   const show = document.querySelectorAll('.show');
   const title = document.querySelector('.title');
-  if (missed === 5) {
+  if (missed >= 5) {
     overlay.style.display = '';
     overlay.className = '';
     overlay.classList.add('lose');
     title.innerHTML = 'Sorry You Lost';
+    reset.innerHTML = 'Try Again?'
+    reset.addEventListener('click', () => {
+      reset.style.display = 'none'
+      window.location.reload();
+    });
   } else if (show.length === letters.length) {
     overlay.style.display = '';
     overlay.className = '';
     overlay.classList.add('win');
     title.innerHTML = 'You Win!';
+    reset.innerHTML = 'Try Again?'
+    reset.addEventListener('click', () => {
+      reset.style.display = 'none'
+      window.location.reload();
+    });
   }
 }

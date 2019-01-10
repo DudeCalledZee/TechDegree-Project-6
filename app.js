@@ -1,6 +1,7 @@
 const qwerty = document.querySelector('#qwerty');
 const score = document.querySelectorAll('.tries');
 const overlay = document.getElementById('overlay');
+const reset = document.querySelector('.btn__reset');
 const lives = document.querySelector('img');
 let letter;
 let missed = 0;

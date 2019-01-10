@@ -14,6 +14,7 @@ const phrases = [
 ];
 const phraseArray = getRandomPhraseAsArray(phrases);
 
+
 overlay.addEventListener('click', () => {
   overlay.style.display = 'none';
 });
@@ -24,6 +25,7 @@ function getRandomPhraseAsArray(arr) {
   let words = arr[randomPhrase].toLowerCase();
   return words.split('');
 };
+
 
 function addPhraseToDisplay(arr) {
   for (i = 0; i < arr.length; i += 1) {
@@ -38,6 +40,7 @@ function addPhraseToDisplay(arr) {
     }
   }
 };
+
 
 addPhraseToDisplay(phraseArray);
 
@@ -54,11 +57,15 @@ function checkLetter(selectLetter) {
   for (let i = 0; i < hiddenLetter.length; i++) {
     if (selectLetter === hiddenLetter[i].textContent) {
       hiddenLetter[i].classList.add('show');
+      hiddenLetter[i].style.transition = "all 2s ease";
+      hiddenLetter[i].style.transform = "rotate(20deg)"
+
       letterFound = true;
     }
   }
   return letterFound;
 }
+
 
 qwerty.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
@@ -77,11 +84,14 @@ qwerty.addEventListener('click', (e) => {
   checkWin();
 });
 
+
 function checkWin() {
   const letters = document.querySelectorAll('.letter');
   const show = document.querySelectorAll('.show');
   const title = document.querySelector('.title');
+  const divPhrase = document.querySelector('#phrase')
   if (missed >= 5) {
+    divPhrase.style.display = 'none';
     overlay.style.display = '';
     overlay.className = '';
     overlay.classList.add('lose');
@@ -92,6 +102,7 @@ function checkWin() {
       window.location.reload();
     });
   } else if (show.length === letters.length) {
+    divPhrase.style.display = 'none';
     overlay.style.display = '';
     overlay.className = '';
     overlay.classList.add('win');
@@ -102,4 +113,4 @@ function checkWin() {
       window.location.reload();
     });
   }
-}
+};

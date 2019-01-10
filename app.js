@@ -1,14 +1,15 @@
 const qwerty = document.querySelector('#qwerty');
 const score = document.querySelectorAll('.tries');
 const overlay = document.getElementById('overlay');
+
 let missed = 0;
 const phrases = [
   'Cattle prod',
-  'oyster ditch',
-  'lap rocket',
+  'Oyster ditch',
+  'Lap rocket',
   'Batter dip',
-  'cranny axe',
-  'gut locker',
+  'Cranny axe',
+  'Gut locker',
 ];
 const phraseArray = getRandomPhraseAsArray(phrases);
 
@@ -39,6 +40,8 @@ function addPhraseToDisplay(arr) {
 
 addPhraseToDisplay(phraseArray);
 
-function checkLetter('click') {
 
-}
+let keypress = qwerty.addEventListener('click', function(event) {
+  keypress = event.target.textContent;
+  letter = JSON.stringify(keypress);
+});

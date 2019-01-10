@@ -2,7 +2,6 @@ const qwerty = document.querySelector('#qwerty');
 const score = document.querySelectorAll('.tries');
 const overlay = document.getElementById('overlay');
 const reset = document.querySelector('.btn__reset');
-const lives = document.querySelector('img');
 let letter;
 let missed = 0;
 const phrases = [
@@ -68,6 +67,9 @@ qwerty.addEventListener('click', (e) => {
     chosenLetter.setAttribute('disabled', '');
     let letterFound = checkLetter(chosenLetter.textContent);
     if (letterFound === false) {
+      let ol = document.querySelector('ol');
+      let lives = ol.getElementsByTagName('img');
+      lives[missed].setAttribute('src', 'images/lostHeart.png');
       missed++;
     }
   }

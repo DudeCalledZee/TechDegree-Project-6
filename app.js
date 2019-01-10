@@ -5,10 +5,10 @@ const reset = document.querySelector('.btn__reset');
 let letter;
 let missed = 0;
 const phrases = [
-  'Cattle prod',
+  'Cattle',
   'Oyster ditch',
-  'Lap rocket',
-  'Batter dip',
+  'rocket raccoon',
+  'dip',
   'Cranny axe',
   'Gut locker',
 ];

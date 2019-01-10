@@ -41,7 +41,7 @@ function addPhraseToDisplay(arr) {
 addPhraseToDisplay(phraseArray);
 
 
-let keypress = qwerty.addEventListener('click', function(event) {
+let keypress = qwerty.addEventListener('click', (e) => {
   keypress = event.target.textContent;
   letter = JSON.stringify(keypress);
 });

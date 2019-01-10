@@ -71,6 +71,8 @@ qwerty.addEventListener('click', (e) => {
       missed++;
     }
   }
+
+  checkWin();
 });
 
 function checkWin() {
@@ -80,13 +82,9 @@ function checkWin() {
     overlay.style.display = '';
     overlay.className = '';
     overlay.classList.add('lose');
-    title.innerHTML = 'Sorry You Lost';
-    startGame.textContent = 'Play Again?';
   } else if (show.length === letters.length) {
     overlay.style.display = '';
     overlay.className = '';
     overlay.classList.add('win');
-    title.innerHTML = 'You Win!';
-    startGame.textContent = 'Play Again?';
   }
 }
